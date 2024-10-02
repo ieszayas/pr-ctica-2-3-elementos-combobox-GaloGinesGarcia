@@ -35,6 +35,8 @@ public class VentanaComboBox extends javax.swing.JFrame {
         TextoIntroducirDatos = new javax.swing.JTextField();
         BotonIntroducirDatos = new javax.swing.JButton();
         ComboBoxDatos = new javax.swing.JComboBox<>();
+        BotonIntroducirTodo = new javax.swing.JButton();
+        BotonBorrarTodo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -54,23 +56,43 @@ public class VentanaComboBox extends javax.swing.JFrame {
             }
         });
 
+        BotonIntroducirTodo.setText("Añadir todo");
+        BotonIntroducirTodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonIntroducirTodoActionPerformed(evt);
+            }
+        });
+
+        BotonBorrarTodo.setText("Borrar todo");
+        BotonBorrarTodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBorrarTodoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BotonIntroducirDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(TextoIntroducirDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                        .addComponent(ComboBoxDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(22, 22, 22))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(TextoPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BotonIntroducirTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotonBorrarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(TextoIntroducirDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addComponent(ComboBoxDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BotonIntroducirDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,7 +105,11 @@ public class VentanaComboBox extends javax.swing.JFrame {
                     .addComponent(ComboBoxDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addComponent(BotonIntroducirDatos)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonIntroducirTodo)
+                    .addComponent(BotonBorrarTodo))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -114,6 +140,38 @@ public class VentanaComboBox extends javax.swing.JFrame {
         TextoIntroducirDatos.setText("");
         
     }//GEN-LAST:event_BotonIntroducirDatosActionPerformed
+
+    private void BotonIntroducirTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIntroducirTodoActionPerformed
+        
+        for (int i = 0; i < ComboBoxDatos.getItemCount(); i++) {
+            if (TextoIntroducirDatos.getText().equals(ComboBoxDatos.getItemAt(i))){
+                JOptionPane.showMessageDialog(rootPane, "Ya has añadido este elemento", getTitle(), JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        
+            TextoIntroducirDatos.setText("Desarrollo de interfaces");
+            ComboBoxDatos.addItem(TextoIntroducirDatos.getText());
+            TextoIntroducirDatos.setText("Sistemas de gestion empresarial");
+            ComboBoxDatos.addItem(TextoIntroducirDatos.getText());
+            TextoIntroducirDatos.setText("Acceso a datos");
+            ComboBoxDatos.addItem(TextoIntroducirDatos.getText());
+            TextoIntroducirDatos.setText("Programacion de servicios y procesos");
+            ComboBoxDatos.addItem(TextoIntroducirDatos.getText());
+            TextoIntroducirDatos.setText("Programacion multimedia y android");
+            ComboBoxDatos.addItem(TextoIntroducirDatos.getText());
+            TextoIntroducirDatos.setText("Iniciativa emprendedora");
+            ComboBoxDatos.addItem(TextoIntroducirDatos.getText());
+            TextoIntroducirDatos.setText("Ingles");
+            ComboBoxDatos.addItem(TextoIntroducirDatos.getText());
+            TextoIntroducirDatos.setText("");
+    }//GEN-LAST:event_BotonIntroducirTodoActionPerformed
+
+    private void BotonBorrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarTodoActionPerformed
+       
+        ComboBoxDatos.removeAllItems();
+        
+    }//GEN-LAST:event_BotonBorrarTodoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,7 +209,9 @@ public class VentanaComboBox extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonBorrarTodo;
     private javax.swing.JButton BotonIntroducirDatos;
+    private javax.swing.JButton BotonIntroducirTodo;
     private javax.swing.JComboBox<String> ComboBoxDatos;
     private javax.swing.JTextField TextoIntroducirDatos;
     private javax.swing.JLabel TextoPrincipal;
