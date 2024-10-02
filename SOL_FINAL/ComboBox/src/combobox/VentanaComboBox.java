@@ -146,7 +146,7 @@ public class VentanaComboBox extends javax.swing.JFrame {
 
     private void BotonIntroducirDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonIntroducirDatosActionPerformed
         //Comprobar que está vacio el campo para añadir el texto
-        if (TextoIntroducirDatos.getText().isEmpty()) {
+        if (TextoIntroducirDatos.getText().isEmpty() || TextoIntroducirDatos.getText().equals("1º ") || TextoIntroducirDatos.getText().equals("2º ")) {
             JOptionPane.showMessageDialog(rootPane, "Error, debes escribir algún elemento para poder añadirlo a la lista", getTitle(), JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -196,7 +196,8 @@ public class VentanaComboBox extends javax.swing.JFrame {
             "Programacion multimedia y android", "Sistemas de gestion empresarial", "Iniciativa emprendedora",
             "Ingles"};
         
-        
+        //Comprobar si al estar seleccionado primero. Que introduzca los datos que
+        //No estan introducidos. Si lo estan no introduce todos, sino los que faltan
         if (ComboBoxCurso.getSelectedItem().equals("Primero")) {
 
             for (int i = 0; i < primero.length; i++) {
@@ -215,7 +216,10 @@ public class VentanaComboBox extends javax.swing.JFrame {
 
             }
         }
-
+        
+        //Comprobar si al estar seleccionado primero. Que introduzca los datos que
+        //No estan introducidos. Si lo estan no introduce todos, sino los que faltan
+        
         if (ComboBoxCurso.getSelectedItem().equals("Segundo")) {
 
             for (int i = 0; i < segundo.length; i++) {
